@@ -76,19 +76,19 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EMISSION_WEIGHT: 1
+    - _EMISSION_WEIGHT: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _METALNESS: 0
+    - _METALNESS: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _REFLECTIONS_IOR: 1.52
-    - _REFLECTIONS_ROUGHNESS: 0.6
+    - _REFLECTIONS_ROUGHNESS: 0.485
     - _REFLECTIONS_WEIGHT: 1
     - _ReceiveShadows: 1
     - _Smoothness: 0.5
@@ -101,7 +101,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BASE_COLOR: {r: 0.3882353, g: 0.3490196, b: 0.2941177, a: 1}
+    - _BASE_COLOR: {r: 0.5471698, g: 0.46651387, b: 0.35359558, a: 1}
     - _BaseColor: {r: 0.65628237, g: 0.6254139, b: 0.5785821, a: 1}
     - _Color: {r: 0.3882353, g: 0.3490196, b: 0.2941177, a: 1}
     - _EMISSION_COLOR: {r: 0, g: 0, b: 0, a: 1}
