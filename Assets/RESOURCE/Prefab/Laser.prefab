@@ -75,7 +75,7 @@ Transform:
   m_GameObject: {fileID: 5438765564449438117}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.06, z: 0.05}
+  m_LocalScale: {x: 0.012768, y: 0.06, z: 0.021266501}
   m_Children:
   - {fileID: 5438765564378582509}
   m_Father: {fileID: 0}
@@ -463,7 +463,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 5
+          value: 12
         fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
