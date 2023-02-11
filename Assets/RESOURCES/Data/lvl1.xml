@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<lvl1>
+<spawn name="Pattern-08" iteration="3" waitBetween="0.2" waitEnd="180"></spawn>
+<spawn name="Pattern-04" iteration="2" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-06" iteration="4" waitBetween="0.2" waitEnd="120"></spawn>
+<spawn name="Pattern-05" iteration="3" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-05Bis" iteration="3" waitBetween="0.2" waitEnd="60"></spawn>
+<spawn name="Pattern-04" iteration="2" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-06" iteration="4" waitBetween="0.2" waitEnd="120"></spawn>
+<spawn name="Pattern-02" iteration="1" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-04Bis" iteration="4" waitBetween="0.2" waitEnd="120"></spawn>
+<spawn name="Pattern-07" iteration="2" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-09" iteration="4" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-09Bis" iteration="4" waitBetween="0.2" waitEnd="240"></spawn>
+<spawn name="Pattern-03" iteration="3" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-03Bis" iteration="3" waitBetween="0.2" waitEnd="120"></spawn>
+<spawn name="Pattern-05" iteration="3" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-05Bis" iteration="3" waitBetween="0.2" waitEnd="120"></spawn>
+<spawn name="Pattern-06" iteration="4" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-07" iteration="2" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-08" iteration="3" waitBetween="0.2" waitEnd="240"></spawn>
+<spawn name="Pattern-02" iteration="1" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-06" iteration="4" waitBetween="0.2" waitEnd="180"></spawn>
+<spawn name="Pattern-03" iteration="3" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-03Bis" iteration="3" waitBetween="0.2" waitEnd="120"></spawn>
+<spawn name="Pattern-04Bis" iteration="2" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-05" iteration="3" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-09" iteration="4" waitBetween="0.2" waitEnd="180"></spawn>
+<spawn name="Pattern-06" iteration="4" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-10" iteration="5" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-08" iteration="3" waitBetween="0.2" waitEnd="240"></spawn>
+<spawn name="Pattern-04" iteration="2" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-06" iteration="4" waitBetween="0.2" waitEnd="180"></spawn>
+<spawn name="Pattern-07" iteration="2" waitBetween="0.2" waitEnd=""></spawn>
+<spawn name="Pattern-01" iteration="3" waitBetween="0.2" waitEnd=""></spawn>
+</lvl1>
