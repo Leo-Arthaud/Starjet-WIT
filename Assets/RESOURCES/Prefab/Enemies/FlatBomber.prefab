@@ -16550,7 +16550,7 @@ MonoBehaviour:
         width: 100
         height: 32
       isBreakpoint: 0
-      isSequence: 0
+      isSequence: 1
       hideUnused: 0
       transitions:
       - fsmEvent:
@@ -16564,15 +16564,17 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
+        - HutongGames.PlayMaker.Actions.Wait
         - HutongGames.PlayMaker.Actions.GetFsmGameObject
         - HutongGames.PlayMaker.Actions.GetFsmFloat
         customNames:
         - 
         - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000005000000
-        actionHashCodes: 5b66cf0087604502
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000300000008000000
+        actionHashCodes: 48c011015b66cf0087604502
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -16634,6 +16636,12 @@ MonoBehaviour:
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0.2
         - useVariable: 1
           name: smoothTime
           tooltip: 
@@ -16647,14 +16655,18 @@ MonoBehaviour:
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams: []
-        byteData: 0000
+        stringParams:
+        - 
+        byteData: 010000
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 14000000120000001200000013000000010000001400000012000000120000000f00000001000000
+        paramDataType: 0f000000170000000100000014000000120000001200000013000000010000001400000012000000120000000f00000001000000
         paramName:
+        - time
+        - finishEvent
+        - realTime
         - gameObject
         - fsmName
         - variableName
@@ -16665,8 +16677,8 @@ MonoBehaviour:
         - variableName
         - storeValue
         - everyFrame
-        paramDataPos: 00000000000000000100000000000000000000000100000002000000030000000000000001000000
-        paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000000000001000000
+        paramDataPos: 00000000000000000000000000000000000000000100000000000000010000000100000002000000030000000100000002000000
+        paramByteDataSize: 00000000000000000100000000000000000000000000000000000000010000000000000000000000000000000000000001000000
     - name: Etat 1
       description: 
       colorIndex: 0
