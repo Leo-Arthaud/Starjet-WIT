@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216062684963858295}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 7}
+  m_LocalPosition: {x: 0.5, y: 0, z: 8}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 216062685637379064}
@@ -89,7 +89,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 82
+        x: 98
         y: 100
         width: 100
         height: 32
@@ -124,7 +124,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 01010101010101
-        actionIsOpen: 00000000000001
+        actionIsOpen: 00000000000000
         actionStartIndex: 000000000100000005000000090000000d0000001100000015000000
         actionHashCodes: 5c004505184b5704184b5704184b5704184b5704184b57045552ad05
         unityObjectParams: []
@@ -360,7 +360,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 292
+        x: 308
         y: 110
         width: 100
         height: 32
@@ -389,7 +389,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 01010101
-        actionIsOpen: 00000000
+        actionIsOpen: 00000001
         actionStartIndex: 00000000070000000e00000015000000
         actionHashCodes: fa0e5402fa0e5402fa0e5402fa0e5402
         unityObjectParams: []
@@ -613,8 +613,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 73
-        y: 193
+        x: 91
+        y: 217
         width: 115
         height: 32
       isBreakpoint: 0
@@ -638,7 +638,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 0101
-        actionIsOpen: 0100
+        actionIsOpen: 0101
         actionStartIndex: 000000000a000000
         actionHashCodes: 905e1b005b66cf00
         unityObjectParams: []
@@ -662,7 +662,7 @@ MonoBehaviour:
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: ship
+          name: shipPattern5
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -677,7 +677,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: ship
+            name: shipPattern5
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -769,8 +769,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 289
-        y: 179
+        x: 324
+        y: 220
         width: 100
         height: 16
       isBreakpoint: 0
@@ -781,13 +781,15 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.PoolKitDespawnInstance
         - HutongGames.PlayMaker.Actions.PoolKitDespawnInstance
+        - HutongGames.PlayMaker.Actions.SendEvent
         customNames:
         - 
         - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000002000000
-        actionHashCodes: 28100f0128100f01
+        - 
+        actionEnabled: 010100
+        actionIsOpen: 010101
+        actionStartIndex: 000000000200000004000000
+        actionHashCodes: 28100f0128100f015e69bb04
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -803,7 +805,7 @@ MonoBehaviour:
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: ship
+          name: shipPattern5
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -818,7 +820,39 @@ MonoBehaviour:
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
-        fsmEventTargetParams: []
+        fsmEventTargetParams:
+        - target: 1
+          excludeSelf:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          gameObject:
+            ownerOption: 1
+            gameObject:
+              useVariable: 1
+              name: shipPattern5
+              tooltip: 
+              showInInspector: 0
+              networkSync: 0
+              value: {fileID: 0}
+          fsmName:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          sendToChildren:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          fsmComponent: {fileID: 0}
         fsmPropertyParams: []
         layoutOptionParams: []
         fsmStringParams: []
@@ -826,7 +860,13 @@ MonoBehaviour:
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
-        fsmFloatParams: []
+        fsmFloatParams:
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
@@ -834,27 +874,32 @@ MonoBehaviour:
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
-        stringParams: []
-        byteData: 
+        stringParams:
+        - DESPAWN SELF
+        byteData: 00
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 13000000130000001300000013000000
+        paramDataType: 130000001300000013000000130000001f000000170000000f00000001000000
         paramName:
         - prefabToDespawn
         - poolToUse
         - prefabToDespawn
         - poolToUse
-        paramDataPos: 00000000010000000200000003000000
-        paramByteDataSize: 00000000000000000000000000000000
+        - eventTarget
+        - sendEvent
+        - delay
+        - everyFrame
+        paramDataPos: 0000000001000000020000000300000000000000000000000000000000000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000001000000
     - name: set followers position
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 50
-        y: 144
+        x: 57
+        y: 158
         width: 156
         height: 32
       isBreakpoint: 0
@@ -955,6 +1000,9 @@ MonoBehaviour:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
+    - name: DESPAWN SELF
+      isSystemEvent: 0
+      isGlobal: 1
     globalTransitions: []
     variables:
       floatVariables: []
@@ -980,6 +1028,18 @@ MonoBehaviour:
         networkSync: 0
         value: {fileID: 0}
       - useVariable: 1
+        name: pattern
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
+        name: shipPattern5
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
+      - useVariable: 1
         name: step0
         tooltip: 
         showInInspector: 0
@@ -999,18 +1059,6 @@ MonoBehaviour:
         value: {fileID: 0}
       - useVariable: 1
         name: step3
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: ship
-        tooltip: 
-        showInInspector: 0
-        networkSync: 0
-        value: {fileID: 0}
-      - useVariable: 1
-        name: pattern
         tooltip: 
         showInInspector: 0
         networkSync: 0
