@@ -4464,7 +4464,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: 50
+        value: 3
       boolVariables: []
       stringVariables: []
       vector2Variables: []
@@ -4504,7 +4504,7 @@ MonoBehaviour:
     ResetVariablesOnEnable: 0
     EnableDebugFlow: 0
     EnableBreakpoints: 1
-    editorFlags: 224
+    editorFlags: 225
     activeStateName: 
     mouseEvents: 0
     handleLevelLoaded: 0
@@ -5023,17 +5023,25 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.GetChild
         - HutongGames.PlayMaker.Actions.GetFsmInt
+        - HutongGames.PlayMaker.Actions.GetOwner
         customNames:
         - 
         - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000004000000
-        actionHashCodes: 184b5704081bbf05
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000400000009000000
+        actionHashCodes: 184b5704081bbf055c004505
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
           name: collider
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 1
+          name: self
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -5110,7 +5118,7 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001200000012000000130000001400000012000000120000001000000001000000
+        paramDataType: 14000000120000001200000013000000140000001200000012000000100000000100000013000000
         paramName:
         - gameObject
         - childName
@@ -5121,8 +5129,9 @@ MonoBehaviour:
         - variableName
         - storeValue
         - everyFrame
-        paramDataPos: 000000000000000001000000000000000100000002000000030000000000000000000000
-        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000001000000
+        - storeGameObject
+        paramDataPos: 00000000000000000100000000000000010000000200000003000000000000000000000001000000
+        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000100000000000000
     - name: Etat 1
       description: 
       colorIndex: 0
@@ -5260,8 +5269,8 @@ MonoBehaviour:
         - 
         - 
         - 
-        actionEnabled: 01010101010101
-        actionIsOpen: 01000000000000
+        actionEnabled: 00010101010101
+        actionIsOpen: 00000000000100
         actionStartIndex: 0000000006000000080000000d00000012000000160000001c000000
         actionHashCodes: 60532301d97b7202081bbf05081bbf0531e5da0209faa1025e69bb04
         unityObjectParams: []
@@ -5652,8 +5661,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 349
-        y: 196
+        x: 377
+        y: 195
         width: 100
         height: 32
       isBreakpoint: 0
@@ -5804,16 +5813,30 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.SetFsmInt
         - HutongGames.PlayMaker.Actions.SetFsmBool
         - HutongGames.PlayMaker.Actions.SendEvent
+        - HutongGames.PlayMaker.Actions.PoolKitDespawnInstance
         customNames:
         - 
         - 
         - 
-        actionEnabled: 010101
-        actionIsOpen: 000000
-        actionStartIndex: 00000000050000000a000000
-        actionHashCodes: 081bbf0568fece055e69bb04
+        - 
+        actionEnabled: 01010101
+        actionIsOpen: 00000001
+        actionStartIndex: 00000000050000000a0000000e000000
+        actionHashCodes: 081bbf0568fece055e69bb0428100f01
         unityObjectParams: []
-        fsmGameObjectParams: []
+        fsmGameObjectParams:
+        - useVariable: 1
+          name: self
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: {fileID: 0}
         fsmOwnerDefaultParams:
         - ownerOption: 1
           gameObject:
@@ -5931,7 +5954,7 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 140000001200000012000000100000000100000014000000120000001200000011000000010000001f000000170000000f00000001000000
+        paramDataType: 140000001200000012000000100000000100000014000000120000001200000011000000010000001f000000170000000f000000010000001300000013000000
         paramName:
         - gameObject
         - fsmName
@@ -5947,8 +5970,10 @@ MonoBehaviour:
         - sendEvent
         - delay
         - everyFrame
-        paramDataPos: 0000000000000000010000000000000000000000010000000200000003000000000000000100000000000000000000000000000002000000
-        paramByteDataSize: 0000000000000000000000000000000001000000000000000000000000000000000000000100000000000000000000000000000001000000
+        - prefabToDespawn
+        - poolToUse
+        paramDataPos: 00000000000000000100000000000000000000000100000002000000030000000000000001000000000000000000000000000000020000000000000001000000
+        paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000000000001000000000000000000000000000000010000000000000000000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -6028,6 +6053,12 @@ MonoBehaviour:
         showInInspector: 0
         networkSync: 0
         value: {fileID: 0}
+      - useVariable: 1
+        name: self
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: {fileID: 0}
       objectVariables: []
       materialVariables: []
       textureVariables: []
@@ -6035,7 +6066,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 00000000000000000000000000000000000000000000000000000000
+      variableCategoryIDs: 0000000000000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
