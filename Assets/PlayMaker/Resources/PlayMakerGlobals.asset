@@ -58,3 +58,4 @@ MonoBehaviour:
   events:
   - SCORE / INCREASE
   - DESPAWN SELF
+  - ENEMIE / SHOOT

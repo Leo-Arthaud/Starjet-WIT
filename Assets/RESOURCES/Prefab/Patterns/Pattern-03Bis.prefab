@@ -478,6 +478,7 @@ MonoBehaviour:
         - HutongGames.PlayMaker.Actions.MoveTowards
         - HutongGames.PlayMaker.Actions.MoveTowards
         - HutongGames.PlayMaker.Actions.MoveTowards
+        - HutongGames.PlayMaker.Actions.SendEvent
         - HutongGames.PlayMaker.Actions.MoveTowards
         - HutongGames.PlayMaker.Actions.MoveTowards
         customNames:
@@ -486,10 +487,11 @@ MonoBehaviour:
         - 
         - 
         - 
-        actionEnabled: 0101010101
-        actionIsOpen: 0000000001
-        actionStartIndex: 00000000070000000e000000150000001c000000
-        actionHashCodes: fa0e5402fa0e5402fa0e5402fa0e5402fa0e5402
+        - 
+        actionEnabled: 010101010101
+        actionIsOpen: 000001010001
+        actionStartIndex: 00000000070000000e000000150000001900000020000000
+        actionHashCodes: fa0e5402fa0e5402fa0e54025e69bb04fa0e5402fa0e5402
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
@@ -566,7 +568,39 @@ MonoBehaviour:
         animationCurveParams: []
         functionCallParams: []
         fsmTemplateControlParams: []
-        fsmEventTargetParams: []
+        fsmEventTargetParams:
+        - target: 1
+          excludeSelf:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          gameObject:
+            ownerOption: 1
+            gameObject:
+              useVariable: 1
+              name: ship
+              tooltip: 
+              showInInspector: 0
+              networkSync: 0
+              value: {fileID: 0}
+          fsmName:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 
+          sendToChildren:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            value: 0
+          fsmComponent: {fileID: 0}
         fsmPropertyParams: []
         layoutOptionParams: []
         fsmStringParams: []
@@ -611,6 +645,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0.1
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
         - useVariable: 0
           name: 
           tooltip: 
@@ -706,14 +746,15 @@ MonoBehaviour:
         - 
         - 
         - 
+        - ENEMIE / SHOOT
         - 
         - 
-        byteData: 
+        byteData: 00
         arrayParamSizes: 
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 14000000130000001c000000110000000f0000000f0000001700000014000000130000001c000000110000000f0000000f0000001700000014000000130000001c000000110000000f0000000f0000001700000014000000130000001c000000110000000f0000000f0000001700000014000000130000001c000000110000000f0000000f00000017000000
+        paramDataType: 14000000130000001c000000110000000f0000000f0000001700000014000000130000001c000000110000000f0000000f0000001700000014000000130000001c000000110000000f0000000f000000170000001f000000170000000f0000000100000014000000130000001c000000110000000f0000000f0000001700000014000000130000001c000000110000000f0000000f00000017000000
         paramName:
         - gameObject
         - targetObject
@@ -736,6 +777,10 @@ MonoBehaviour:
         - maxSpeed
         - finishDistance
         - finishEvent
+        - eventTarget
+        - sendEvent
+        - delay
+        - everyFrame
         - gameObject
         - targetObject
         - targetPosition
@@ -750,8 +795,8 @@ MonoBehaviour:
         - maxSpeed
         - finishDistance
         - finishEvent
-        paramDataPos: 0000000000000000000000000000000000000000010000000000000001000000010000000100000001000000020000000300000001000000020000000200000002000000020000000400000005000000020000000300000003000000030000000300000006000000070000000300000004000000040000000400000004000000080000000900000004000000
-        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+        paramDataPos: 000000000000000000000000000000000000000001000000000000000100000001000000010000000100000002000000030000000100000002000000020000000200000002000000040000000500000002000000000000000300000006000000000000000300000003000000030000000300000007000000080000000400000004000000040000000400000004000000090000000a00000005000000
+        paramByteDataSize: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     - name: ConfigEnnemy
       description: 
       colorIndex: 0
@@ -1099,6 +1144,9 @@ MonoBehaviour:
     - name: FINISHED
       isSystemEvent: 1
       isGlobal: 0
+    - name: ENEMIE / SHOOT
+      isSystemEvent: 0
+      isGlobal: 1
     globalTransitions: []
     variables:
       floatVariables: []
