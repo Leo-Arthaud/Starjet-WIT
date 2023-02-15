@@ -7953,6 +7953,7 @@ GameObject:
   - component: {fileID: 4942290671060261562}
   - component: {fileID: 4942290671060261563}
   - component: {fileID: 4942290671060261556}
+  - component: {fileID: 1047828693886976582}
   m_Layer: 0
   m_Name: BlackKite
   m_TagString: Untagged
@@ -8071,7 +8072,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: Dummy-Blackkite
+          value: Dummy-BlackKite
         - useVariable: 0
           name: 
           tooltip: 
@@ -8315,7 +8316,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 0300000000000000
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -8351,7 +8352,7 @@ MonoBehaviour:
     handleAnimatorMove: 0
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
-  eventHandlerComponentsAdded: 0
+  eventHandlerComponentsAdded: 1
 --- !u!114 &4942290671060261563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8760,7 +8761,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -8789,14 +8790,14 @@ MonoBehaviour:
     handleJointBreak2D: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
-    handleLateUpdate: 0
+    handleLateUpdate: 1
     handleApplicationEvents: 0
     handleUiEvents: 0
     handleLegacyNetworking: 0
     handleAnimatorMove: 0
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
-  eventHandlerComponentsAdded: 0
+  eventHandlerComponentsAdded: 1
 --- !u!114 &4942290671060261556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9104,7 +9105,6 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
-        - HutongGames.PlayMaker.Actions.CreateObject
         - HutongGames.PlayMaker.Actions.GetParent
         - HutongGames.PlayMaker.Actions.GetFsmInt
         - HutongGames.PlayMaker.Actions.GetFsmInt
@@ -9118,37 +9118,12 @@ MonoBehaviour:
         - 
         - 
         - 
-        - 
-        actionEnabled: 01010101010101
-        actionIsOpen: 01000000000000
-        actionStartIndex: 0000000006000000080000000d00000012000000160000001c000000
-        actionHashCodes: 60532301d97b7202081bbf05081bbf0531e5da0209faa1025e69bb04
+        actionEnabled: 010101010101
+        actionIsOpen: 000000000000
+        actionStartIndex: 0000000002000000070000000c0000001000000016000000
+        actionHashCodes: d97b7202081bbf05081bbf0531e5da0209faa1025e69bb04
         unityObjectParams: []
         fsmGameObjectParams:
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 2791918417894966802, guid: 1eb37ad3c23649c458870441d506f010, type: 3}
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 1
-          name: laser
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {fileID: 0}
         - useVariable: 1
           name: laser
           tooltip: 
@@ -9293,19 +9268,7 @@ MonoBehaviour:
           value: 0
         fsmBoolParams: []
         fsmVector2Params: []
-        fsmVector3Params:
-        - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {x: 0, y: 0, z: 0}
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: {x: -120, y: 0, z: 0}
+        fsmVector3Params: []
         fsmColorParams: []
         fsmRectParams: []
         fsmQuaternionParams: []
@@ -9319,14 +9282,8 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1300000013000000130000001c0000001c00000013000000140000001300000014000000120000001200000010000000010000001400000012000000120000001000000001000000100000001000000001000000010000001000000010000000170000001700000017000000010000001f000000170000000f00000001000000
+        paramDataType: 140000001300000014000000120000001200000010000000010000001400000012000000120000001000000001000000100000001000000001000000010000001000000010000000170000001700000017000000010000001f000000170000000f00000001000000
         paramName:
-        - gameObject
-        - parent
-        - spawnPoint
-        - position
-        - rotation
-        - storeObject
         - gameObject
         - storeResult
         - gameObject
@@ -9353,8 +9310,8 @@ MonoBehaviour:
         - sendEvent
         - delay
         - everyFrame
-        paramDataPos: 0000000001000000020000000000000001000000030000000000000004000000010000000000000001000000000000000000000002000000020000000300000001000000010000000200000003000000020000000300000004000000050000000000000001000000020000000400000000000000030000000000000005000000
-        paramByteDataSize: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000010000000000000000000000010000000100000000000000000000000000000000000000000000000100000000000000000000000000000001000000
+        paramDataPos: 0000000000000000010000000000000001000000000000000000000002000000020000000300000001000000010000000200000003000000020000000300000004000000050000000000000001000000020000000400000000000000030000000000000005000000
+        paramByteDataSize: 0000000000000000000000000000000000000000000000000100000000000000000000000000000000000000010000000000000000000000010000000100000000000000000000000000000000000000000000000100000000000000000000000000000001000000
     - name: WHO KILL
       description: 
       colorIndex: 0
@@ -10032,7 +9989,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -10068,7 +10025,21 @@ MonoBehaviour:
     handleAnimatorMove: 0
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
-  eventHandlerComponentsAdded: 0
+  eventHandlerComponentsAdded: 1
+--- !u!114 &1047828693886976582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212884682664519654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1079068393, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetFSMs:
+  - {fileID: 4942290671060261563}
 --- !u!1 &5300240969275394410
 GameObject:
   m_ObjectHideFlags: 0
