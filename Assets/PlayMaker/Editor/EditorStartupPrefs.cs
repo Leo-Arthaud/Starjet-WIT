@@ -38,6 +38,9 @@ namespace HutongGames.PlayMakerEditor
                     instance = Resources.Load<EditorStartupPrefs>("EditorStartupPrefs");
                     if (instance == null)
                     {
+                        // We don't include EditorStartupPrefs in install
+                        // since that would overwrite user settings.
+                        // So we need to make a new instance:
                         instance = CreateInstance<EditorStartupPrefs>();
 
                         // Note: Save will be called after importing unitypackage
@@ -120,6 +123,19 @@ namespace HutongGames.PlayMakerEditor
             set { instance.useLegacyNetworking = value; Save(); }
         }
 
+        /*
+        public static bool UseLegacyGUI
+        {
+            get { return Instance.useLegacyGUI; }
+            set { instance.useLegacyGUI = value; Save(); }
+        }
+
+        public static bool UseITween
+        {
+            get { return Instance.useITween; }
+            set { instance.useITween = value; Save(); }
+        }*/     
+
         [Header("NOTE: Do not manually edit these parameters!")]
 
         // can't do this, see note above
@@ -130,10 +146,9 @@ namespace HutongGames.PlayMakerEditor
         [SerializeField] private bool showWelcomeScreen = true;
         [SerializeField] private bool showUpgradeGuide;
         [SerializeField] private string lastAutoUpdateSignature;
-
-        // Not the best place for this setting
-        // since it gets reset when updating Playmaker
         [SerializeField] private bool useLegacyNetworking;
+        //[SerializeField] private bool useLegacyGUI;
+        //[SerializeField] private bool useITween;
 
         public static void ResetForExport()
         {
@@ -142,6 +157,8 @@ namespace HutongGames.PlayMakerEditor
             PlaymakerVersion = string.Empty;
             WelcomeScreenVersion = string.Empty;
             UseLegacyNetworking = false;
+            //UseLegacyGUI = false;
+            //UseITween = false;
         }
 
         /// <summary>

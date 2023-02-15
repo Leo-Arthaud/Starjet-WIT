@@ -16,17 +16,13 @@ namespace HutongGames.PlayMaker.Actions
 
         [Tooltip("Lock the cursor to the center of the screen. Useful in first person controllers.")]
 		public FsmBool lockCursor;
-
-        [Tooltip("Repeat every frame.")]
-        public bool everyFrame;
-
+		
 		public override void Reset()
 		{
 			cursorTexture = null;
 			hideCursor = false;
 			lockCursor = false;
-            everyFrame = false;
-        }
+		}
 		
 		public override void OnEnter()
 		{
@@ -38,11 +34,8 @@ namespace HutongGames.PlayMaker.Actions
             // If it is in the scene, this is redundant, but that's fine...
 
             UpdateCursorState();
-
-            if (!everyFrame)
-            {
-                Finish();
-            }
+			
+			//Finish();
 		}
 
         private void UpdateCursorState()
@@ -67,8 +60,8 @@ namespace HutongGames.PlayMaker.Actions
             var texture = cursorTexture.Value;
 
 			if (texture != null)
-            {
-                var mousePos = ActionHelpers.GetMousePosition();
+			{
+				var mousePos = Input.mousePosition;
 				var pos =  new Rect(mousePos.x - texture.width * 0.5f, 
 					Screen.height - mousePos.y - texture.height * 0.5f, 
                     texture.width, texture.height);

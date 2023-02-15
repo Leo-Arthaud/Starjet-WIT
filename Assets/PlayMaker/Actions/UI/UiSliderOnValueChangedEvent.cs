@@ -26,7 +26,7 @@ namespace HutongGames.PlayMaker.Actions
 		public override void Reset()
 		{
 			gameObject = null;
-		    eventTarget = null;
+		    eventTarget = FsmEventTarget.Self;
 		    sendEvent = null;
 		    value = null;
 		}

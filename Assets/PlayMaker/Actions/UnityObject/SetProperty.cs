@@ -42,8 +42,9 @@ namespace HutongGames.PlayMaker.Actions
 #if UNITY_EDITOR
 	    public override string AutoName()
         {
-            var targetName = ActionHelpers.GetValueLabel(targetProperty.TargetObject);
-            var name = targetName.Trim() + "." + (string.IsNullOrEmpty(targetProperty.PropertyName) ? "[none]" : targetProperty.PropertyName);
+            var target = targetProperty.TargetObject.Value;
+            var targetName = target != null ? target.name : "[none]";
+	        var name = targetName + "." + (string.IsNullOrEmpty(targetProperty.PropertyName) ? "[none]" : targetProperty.PropertyName);
             var value = ActionHelpers.GetValueLabel(targetProperty.GetVariable());
 	        return string.Format("{0} = {1}", name, value);
 	    }

@@ -19,17 +19,16 @@ namespace HutongGames.PlayMaker.Actions
 		[Tooltip("Or the 3d position. Set to none for no effect")]
 		public FsmVector3 position;
 		
-		[Tooltip("The x component of the position. Set to none for no effect")]
+		[Tooltip("The x component of the rotation. Set to none for no effect")]
 		public FsmFloat x;
 		
-		[Tooltip("The y component of the position. Set to none for no effect")]
+		[Tooltip("The y component of the rotation. Set to none for no effect")]
 		public FsmFloat y;
 
-		[Tooltip("The z component of the position. Set to none for no effect")]
+		[Tooltip("The z component of the rotation. Set to none for no effect")]
 		public FsmFloat z;
-
-        private GameObject cachedGameObject;
-        private RectTransform _rt;
+		
+		RectTransform _rt;
 		
 		public override void Reset()
 		{
@@ -45,9 +44,8 @@ namespace HutongGames.PlayMaker.Actions
 		public override void OnEnter()
 		{
 			GameObject go = Fsm.GetOwnerDefaultTarget(gameObject);
-			if (go != cachedGameObject)
-            {
-                cachedGameObject = go;
+			if (go != null)
+			{
 				_rt = go.GetComponent<RectTransform>();
 			}
 			

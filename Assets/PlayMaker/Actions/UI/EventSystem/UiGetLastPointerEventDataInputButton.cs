@@ -52,17 +52,22 @@ namespace HutongGames.PlayMaker.Actions
 				inputButton.Value = UiGetLastPointerDataInfo.lastPointerEventData.button;
 			}
 			
-			if (UiGetLastPointerDataInfo.lastPointerEventData.button == PointerEventData.InputButton.Left)
+			if (!string.IsNullOrEmpty(leftClick.Name) && 
+			    UiGetLastPointerDataInfo.lastPointerEventData.button == PointerEventData.InputButton.Left)
 			{
 				Fsm.Event(leftClick);
+				return;
 			}
 
-			if (UiGetLastPointerDataInfo.lastPointerEventData.button == PointerEventData.InputButton.Middle)
+			if (!string.IsNullOrEmpty(middleClick.Name) && 
+			    UiGetLastPointerDataInfo.lastPointerEventData.button == PointerEventData.InputButton.Middle)
 			{
 				Fsm.Event(middleClick);
+				return;
 			}
 
-			if (UiGetLastPointerDataInfo.lastPointerEventData.button == PointerEventData.InputButton.Right)
+			if (!string.IsNullOrEmpty(rightClick.Name) && 
+			    UiGetLastPointerDataInfo.lastPointerEventData.button == PointerEventData.InputButton.Right)
 			{
 				Fsm.Event(rightClick);
 			}

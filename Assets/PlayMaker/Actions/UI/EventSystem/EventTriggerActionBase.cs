@@ -24,7 +24,7 @@ namespace HutongGames.PlayMaker.Actions
         public override void Reset()
         {
             gameObject = null;
-            eventTarget = null;
+            eventTarget = FsmEventTarget.Self;
         }
 
         protected void Init(EventTriggerType eventTriggerType, UnityEngine.Events.UnityAction<BaseEventData> call)

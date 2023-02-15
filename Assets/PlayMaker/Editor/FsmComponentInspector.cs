@@ -38,9 +38,8 @@ namespace HutongGames.PlayMakerEditor
         {
             //Debug.Log("FsmComponentInspector.Init()");
 
-            fsmInspector = new FsmInspector(fsmComponent.Fsm, true);
+            fsmInspector = new FsmInspector(fsmComponent.Fsm) {UnityInspectorMode = true};
             fsmInspector.OnEditButtonPressed += () => { FsmEditorWindow.OpenInEditor(fsmComponent); };
-            FsmEditor.OnFsmControlsChanged += (fsm) => Repaint();
 
             FsmEditorSettings.LoadSettings();
             PlayMakerFSM.OnSettingChanged = DoSettingsChanged;

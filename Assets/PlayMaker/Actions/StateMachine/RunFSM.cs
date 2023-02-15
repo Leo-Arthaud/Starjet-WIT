@@ -68,7 +68,6 @@ namespace HutongGames.PlayMaker.Actions
             fsmTemplateControl.ApplyOverrides(runFsm);
 
             runFsm.OnEnable();
-            runFsm.OnOutputEvent += OnOutputEvent;
 
             if (!runFsm.Started)
             {
@@ -78,6 +77,8 @@ namespace HutongGames.PlayMaker.Actions
             //storeID.Value = fsmTemplateControl.ID;
 
             fsmTemplateControl.UpdateOutput(Fsm);
+
+            runFsm.OnOutputEvent += OnOutputEvent;
 
             CheckIfFinished();
         }
@@ -135,6 +136,16 @@ namespace HutongGames.PlayMaker.Actions
             {
                 Finish();
             }
+        }
+
+        public override bool Event(FsmEvent fsmEvent)
+        {
+            if (base.Event(fsmEvent)) return true;
+
+            var outEvent = fsmTemplateControl.MapEvent(fsmEvent);
+            if (outEvent == null) return false;
+            Fsm.Event(outEvent);
+            return true;
         }
 
         // Other functionality covered in RunFSMAction base class

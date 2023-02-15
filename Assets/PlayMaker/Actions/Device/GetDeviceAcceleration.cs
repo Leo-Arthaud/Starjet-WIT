@@ -1,4 +1,6 @@
-// (c) Copyright HutongGames, LLC 2010-2021. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2020. All rights reserved.
+
+using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -52,11 +54,9 @@ namespace HutongGames.PlayMaker.Actions
 		public override void OnEnter()
 		{
 			DoGetDeviceAcceleration();
-
-            if (!everyFrame)
-            {
-                Finish();
-            }
+			
+			if (!everyFrame)
+				Finish();
 		}
 		
 
@@ -67,29 +67,28 @@ namespace HutongGames.PlayMaker.Actions
 		
 		void DoGetDeviceAcceleration()
 		{
-            /*			var dir = Vector3.zero;
-
-                        switch (mappingOptions) 
-                        {
-                        case MappingOptions.Flat:
-
-                            dir.x = Input.acceleration.x;
-                            dir.y = Input.acceleration.z;
-                            dir.z = Input.acceleration.y;
-                            break;
-
-
-                        case MappingOptions.Vertical:
-                            dir.x = Input.acceleration.x;
-                            dir.y = Input.acceleration.y;
-                            dir.z = Input.acceleration.x;
-                            break;
-                        }
-            */
-
-            var dir = ActionHelpers.GetDeviceAcceleration();
-
-            if (!multiplier.IsNone)
+/*			var dir = Vector3.zero;
+			
+			switch (mappingOptions) 
+			{
+			case MappingOptions.Flat:
+				
+				dir.x = Input.acceleration.x;
+				dir.y = Input.acceleration.z;
+				dir.z = Input.acceleration.y;
+				break;
+					
+				
+			case MappingOptions.Vertical:
+				dir.x = Input.acceleration.x;
+				dir.y = Input.acceleration.y;
+				dir.z = Input.acceleration.x;
+				break;
+			}
+*/
+			var dir = new Vector3(Input.acceleration.x, Input.acceleration.y, Input.acceleration.z);
+			
+			if (!multiplier.IsNone)
 			{
 				dir *= multiplier.Value;
 			}

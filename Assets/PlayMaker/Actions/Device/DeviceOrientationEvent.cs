@@ -1,21 +1,10 @@
-// (c) Copyright HutongGames, LLC 2010-2021. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
 
-// NOTE: The new Input System and legacy Input Manager can both be enabled in a project.
-// This action can only run if the legacy Input Manager is enabled.
-
-#if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
-#define NEW_INPUT_SYSTEM_ONLY
-#endif
-
-using System;
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-#if NEW_INPUT_SYSTEM_ONLY
-    [Obsolete("This action has no equivalent in the new Input System.")]
-#endif
-    [ActionCategory(ActionCategory.Device)]
+	[ActionCategory(ActionCategory.Device)]
 	[Tooltip("Sends an Event based on the Orientation of the mobile device.")]
 	public class DeviceOrientationEvent : FsmStateAction
 	{
@@ -44,29 +33,20 @@ namespace HutongGames.PlayMaker.Actions
 			    Finish();
 			}
 		}
+		
 
-        public override void OnUpdate()
+		public override void OnUpdate()
 		{
 			DoDetectDeviceOrientation();
 		}
-
-        private void DoDetectDeviceOrientation()
+		
+		void DoDetectDeviceOrientation()
 		{
-#if !NEW_INPUT_SYSTEM_ONLY
 			if (Input.deviceOrientation == orientation)
 			{
 			    Fsm.Event(sendEvent);
 			}
-#endif
-        }
-
-#if NEW_INPUT_SYSTEM_ONLY
-
-        public override string ErrorCheck()
-        {
-            return "This action is not supported in the new Input System.";
-        }
-#endif
-
-    }
+		}
+		
+	}
 }

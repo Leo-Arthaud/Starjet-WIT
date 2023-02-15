@@ -370,11 +370,6 @@ namespace HutongGames.PlayMakerEditor
             }
         }
 
-        private void OnBecameVisible()
-        {
-            OnSelectionChange();
-        }
-
         private void OnSelectionChange()
         {
             if (Initialized && fsmEditor != null)
@@ -424,10 +419,7 @@ namespace HutongGames.PlayMakerEditor
 
         private void OnDestroy()
         {
-            if (instance == this)
-            {
-                CloseAllWindowsThatNeedMainEditor();
-            }
+            CloseAllWindowsThatNeedMainEditor();
         }
 
 #if PLAYMAKER_SOURCE

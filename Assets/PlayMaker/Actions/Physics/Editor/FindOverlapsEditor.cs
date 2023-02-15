@@ -27,7 +27,7 @@ namespace HutongGames.PlayMakerEditor
         {
             action = target as HutongGames.PlayMaker.Actions.FindOverlaps;
 
-            if (action == null || action.debug == null || !action.debug.Value) return;
+            if (action == null || !action.debug.Value) return;
 
             var color = Handles.color;
             Handles.color = action.debugColor.Value;

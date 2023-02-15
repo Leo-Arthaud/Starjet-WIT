@@ -108,31 +108,15 @@ namespace HutongGames.PlayMakerEditor
             // Note: StartAssetEditing/StopAssetEditing doesn't seem to work across scene loading.
             // another reason to collect all the prefabs first.
 
-            try
-            {
-                AssetDatabase.StartAssetEditing();
+            AssetDatabase.StartAssetEditing();
 
-                report += DoPreprocessPrefabFSMs(prefabs);
-            }
-            finally
-            {
-                StopAssetEditing();
-            }
+            report += DoPreprocessPrefabFSMs(prefabs);
+
+            AssetDatabase.StopAssetEditing();
 
             LoadScenes(loadedScenes);
 
             return report;
-        }
-
-        private static void StopAssetEditing()
-        {
-            if (EditorApplication.isUpdating)
-            {
-                EditorApplication.delayCall += StopAssetEditing;
-                return;
-            }
-            
-            AssetDatabase.StopAssetEditing();
         }
 
         /// <summary>
@@ -420,12 +404,6 @@ namespace HutongGames.PlayMakerEditor
                 // so we can just call this and let it handle dirty etc.
 
                 fsm.Reload();
-
-                if (fsm.DataVersion == 1)
-                {
-                    fsm.DataVersion = Fsm.CurrentDataVersion;
-                    fsm.SaveActions();
-                }
             }
         }
 
@@ -445,7 +423,7 @@ namespace HutongGames.PlayMakerEditor
 
                 ReSaveAllLoadedFSMs();
 
-                if (!EditorApplication.isUpdating && !EditorSceneManager.SaveOpenScenes())
+                if (!EditorSceneManager.SaveOpenScenes())
                 {
                     Debug.LogError("Could not save scene!");
                 }

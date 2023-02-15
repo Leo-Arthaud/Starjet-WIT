@@ -23,12 +23,5 @@ namespace HutongGames.PlayMaker.Actions
 			
             Finish();
         }
-
-#if UNITY_EDITOR
-        public override string AutoName()
-        {
-            return ActionHelpers.AutoName("GetEventFloat", getVector3Data);
-        }
-#endif
     }
 }

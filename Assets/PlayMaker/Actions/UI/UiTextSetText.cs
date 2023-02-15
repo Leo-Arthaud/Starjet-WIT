@@ -73,10 +73,11 @@ namespace HutongGames.PlayMaker.Actions
 		}
 
 #if UNITY_EDITOR
-        public override string AutoName()
-        {
-            return ActionHelpers.AutoName("UISetText", text);
-        }
+	    public override string AutoName()
+	    {
+            // Not using ActionHelpers AutoName to use shorter action name
+	        return string.Format("UISetText{0} {1}", ActionHelpers.colon, ActionHelpers.GetValueLabel(text));
+	    }
 #endif
-    }
+	}
 }

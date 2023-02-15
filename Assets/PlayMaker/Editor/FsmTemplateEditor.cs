@@ -27,8 +27,6 @@ public class FsmTemplateEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        FsmEditorStyles.Init();
-
         serializedObject.Update();
 
         EditorGUI.BeginChangeCheck();

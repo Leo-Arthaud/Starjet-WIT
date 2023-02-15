@@ -107,26 +107,5 @@ namespace HutongGames.PlayMaker.Actions
 			
 			Finish();
 		}
-
-
-#if UNITY_EDITOR
-        public override string AutoName()
-        {
-            return "SetEventData: " +
-                   (getBoolData.IsNone ? "" : ActionHelpers.GetValueLabel(getBoolData)) +
-                   (getIntData.IsNone ? "" : ActionHelpers.GetValueLabel(getIntData)) +
-                   (getFloatData.IsNone ? "" : ActionHelpers.GetValueLabel(getFloatData)) +
-                   (getVector2Data.IsNone ? "" : ActionHelpers.GetValueLabel(getVector2Data)) +
-                   (getStringData.IsNone ? "" : ActionHelpers.GetValueLabel(getStringData)) +
-                   (getGameObjectData.IsNone ? "" : ActionHelpers.GetValueLabel(getGameObjectData)) +
-                   (getRectData.IsNone ? "" : ActionHelpers.GetValueLabel(getRectData)) +
-                   (getQuaternionData.IsNone ? "" : ActionHelpers.GetValueLabel(getQuaternionData)) +
-                   (getColorData.IsNone ? "" : ActionHelpers.GetValueLabel(getColorData)) +
-                   (getMaterialData.IsNone ? "" : ActionHelpers.GetValueLabel(getMaterialData)) +
-                   (getTextureData.IsNone ? "" : ActionHelpers.GetValueLabel(getTextureData)) +
-                   (getObjectData.IsNone ? "" : ActionHelpers.GetValueLabel(getObjectData))
-                ;
-        }
-#endif
-    }
+	}
 }

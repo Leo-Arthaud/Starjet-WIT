@@ -1,4 +1,4 @@
-// (c) Copyright HutongGames, LLC 2010-2021. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2020. All rights reserved.
 
 using UnityEngine;
 
@@ -57,10 +57,9 @@ namespace HutongGames.PlayMaker.Actions
 		}
 		
 		void DoGetDeviceRoll()
-        {
-            var acceleration = ActionHelpers.GetDeviceAcceleration();
-			float x = acceleration.x;
-			float y = acceleration.y;
+		{
+			float x = Input.acceleration.x;
+			float y = Input.acceleration.y;
 			float zAngle = 0;
 			
 			switch (baseOrientation) 

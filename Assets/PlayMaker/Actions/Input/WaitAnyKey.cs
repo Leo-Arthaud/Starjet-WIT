@@ -1,4 +1,6 @@
-// (c) Copyright HutongGames, LLC 2010-2021. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
+
+using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -14,13 +16,13 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void Reset()
         {
-            eventTarget = null;
+            eventTarget = FsmEventTarget.Self;
 			sendEvent = null;
 		}
 
 		public override void OnUpdate()
 		{
-			if (ActionHelpers.AnyKeyDown())
+			if (Input.anyKeyDown)
 			{
                 Fsm.Event(eventTarget, sendEvent);
                 Finish();

@@ -31,23 +31,14 @@ namespace HutongGames.PlayMakerEditor
         protected override void OnEnable()
         {
             base.OnEnable();
-
-            if (instance == null)
-            {
-                instance = this;
-            }
-
+            instance = this;
             titleContent.text = "PlayMaker";
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
-
-            if (instance == this)
-            {
-                instance = null;
-            }
+            instance = null;
 
             HighlighterHelper.Enabled = false;
         }

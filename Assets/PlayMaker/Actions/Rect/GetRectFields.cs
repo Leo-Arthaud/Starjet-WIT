@@ -28,23 +28,7 @@ namespace HutongGames.PlayMaker.Actions
 		[UIHint(UIHint.Variable)]
         [Tooltip("Store the Height in a Float Variable.")]
 		public FsmFloat storeHeight;
-
-        [UIHint(UIHint.Variable)]
-        [Tooltip("Store the Min position in a Vector2 Variable.")]
-        public FsmVector2 storeMin;
-
-        [UIHint(UIHint.Variable)]
-        [Tooltip("Store the Max position in a Vector2 Variable.")]
-        public FsmVector2 storeMax;
-
-        [UIHint(UIHint.Variable)]
-        [Tooltip("Store the Size in a Vector2 Variable.")]
-        public FsmVector2 storeSize;
-
-        [UIHint(UIHint.Variable)]
-        [Tooltip("Store the Center in a Vector2 Variable.")]
-        public FsmVector2 storeCenter;
-
+		
         [Tooltip("Repeat every frame.")]
 		public bool everyFrame;
 
@@ -55,10 +39,6 @@ namespace HutongGames.PlayMaker.Actions
 			storeY = null;
 			storeWidth = null;
 			storeHeight = null;
-            storeMin = null;
-            storeMax = null;
-            storeSize = null;
-            storeCenter = null;
 			everyFrame = false;
 		}
 
@@ -88,10 +68,6 @@ namespace HutongGames.PlayMaker.Actions
 			storeY.Value = rectVariable.Value.y;
 			storeWidth.Value = rectVariable.Value.width;
 			storeHeight.Value = rectVariable.Value.height;
-            storeMin.Value = rectVariable.Value.min;
-            storeMax.Value = rectVariable.Value.max;
-            storeSize.Value = rectVariable.Value.size;
-            storeCenter.Value = rectVariable.Value.center;
-        }
+		}
 	}
 }

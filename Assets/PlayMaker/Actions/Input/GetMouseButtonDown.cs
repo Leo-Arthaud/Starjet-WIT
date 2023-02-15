@@ -1,19 +1,6 @@
-// (c) Copyright HutongGames, LLC 2010-2021. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
 
-// NOTE: The new Input System and legacy Input Manager can both be enabled in a project.
-// This action was developed for the old input manager, so we will use it if its available. 
-// If only the new input system is available we will try to use that instead,
-// but there might be subtle differences in the behaviour in the new system!
-
-#if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
-#define NEW_INPUT_SYSTEM_ONLY
-#endif
-
-#if NEW_INPUT_SYSTEM_ONLY
-using UnityEngine.InputSystem;
-#else
 using UnityEngine;
-#endif
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -56,40 +43,15 @@ namespace HutongGames.PlayMaker.Actions
             DoGetMouseButtonDown();
         }
 
-        private void DoGetMouseButtonDown()
+		void DoGetMouseButtonDown()
 		{
-#if NEW_INPUT_SYSTEM_ONLY
-            var buttonDown = false;
-            switch (button)
-            {
-                case MouseButton.Left:
-                    buttonDown = Mouse.current.leftButton.wasPressedThisFrame;
-                    break;
-                case MouseButton.Right:
-                    buttonDown = Mouse.current.rightButton.wasPressedThisFrame;
-                    break;
-                case MouseButton.Middle:
-                    buttonDown = Mouse.current.middleButton.wasPressedThisFrame;
-                    break;
-            }
-#else
-            var buttonDown = Input.GetMouseButtonDown((int)button);
-#endif
-            storeResult.Value = buttonDown;
-
-            if (buttonDown)
+			bool buttonDown = Input.GetMouseButtonDown((int)button);
+		    if (buttonDown)
 			{
 			    Fsm.Event(sendEvent);
 			}
-        }
-
-#if UNITY_EDITOR
-        public override string AutoName()
-        {
-            return string.Format("GetMouseButtonDown: {0} {1}",
-                sendEvent != null ? sendEvent.Name : "",
-                storeResult.IsNone ? "" : storeResult.Name);
-        }
-#endif
-    }
+			
+			storeResult.Value = buttonDown;
+		}
+	}
 }

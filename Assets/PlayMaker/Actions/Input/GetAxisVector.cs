@@ -1,22 +1,9 @@
-// (c) Copyright HutongGames, LLC 2010-2021. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2020. All rights reserved.
 
-// NOTE: The new Input System and legacy Input Manager can both be enabled in a project.
-#if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
-#define NEW_INPUT_SYSTEM_ONLY
-#endif
-
-using System;
-
-#if !NEW_INPUT_SYSTEM_ONLY
 using UnityEngine;
-#endif
 
 namespace HutongGames.PlayMaker.Actions
 {
-#if NEW_INPUT_SYSTEM_ONLY
-    [Obsolete("This action is not supported in the new Input System. " +
-              "Use PlayerInputGetMoveVector or GamepadGetStickValue instead.")]
-#endif
     [NoActionTargets]
 	[ActionCategory(ActionCategory.Input)]
 	[Tooltip("Gets a world direction Vector from 2 Input Axis. Typically used for a third person controller with Relative To set to the camera.")]
@@ -69,8 +56,7 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnUpdate()
 		{
-#if !NEW_INPUT_SYSTEM_ONLY
-            var forward = new Vector3();
+			var forward = new Vector3();
 			var right = new Vector3();
 			
 			if (relativeTo.Value == null)
@@ -138,17 +124,7 @@ namespace HutongGames.PlayMaker.Actions
 			{
 				storeMagnitude.Value = direction.magnitude;
 			}
-#endif
 		}
-
-#if NEW_INPUT_SYSTEM_ONLY
-
-        public override string ErrorCheck()
-        {
-            return "This action is not supported in the new Input System." +
-                   "Use PlayerInputGetMoveVector or GamepadGetStickValue instead.";
-        }
-#endif
-    }
+	}
 }
 

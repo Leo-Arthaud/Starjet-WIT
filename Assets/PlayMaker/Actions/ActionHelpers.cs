@@ -4,17 +4,6 @@
 #define UNITY_PRE_5_3
 #endif
 
-// NOTE: The new Input System and legacy Input Manager can both be enabled in a project.
-// Most actions were developed for the old input manager, so we will use it if its available. 
-// If only the new input system is available we will try to use that instead,
-// but there might be subtle differences in the behaviour in the new system!
-// We will add new helpers for the new Input System.
-
-#if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
-#define NEW_INPUT_SYSTEM_ONLY
-#endif
-
-
 #define FSM_LOG
 
 #if !PLAYMAKER_NO_UI
@@ -26,10 +15,6 @@ using System.Collections.Generic;
 //using System.Text.RegularExpressions;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
-#if ENABLE_INPUT_SYSTEM
-using UnityEngine.InputSystem;
-#endif
 
 #if UNITY_EDITOR
 
@@ -278,42 +263,6 @@ namespace HutongGames.PlayMaker
             return validPos;
         }*/
 
-        #region Input Helpers
-        
-        // Input System agnostic methods
-
-        public static Vector3 GetDeviceAcceleration()
-        {
-#if NEW_INPUT_SYSTEM_ONLY
-            return Accelerometer.current != null ? Accelerometer.current.acceleration.ReadValue() : Vector3.zero;
-#else
-            return Input.acceleration;
-#endif 
-        }
-
-        public static Vector3 GetMousePosition()
-        {
-#if NEW_INPUT_SYSTEM_ONLY
-            if (Mouse.current == null) return Vector3.zero;
-            return Mouse.current.position.ReadValue();
-#else
-            return Input.mousePosition;
-#endif
-        }
-
-        public static bool AnyKeyDown()
-        {
-#if NEW_INPUT_SYSTEM_ONLY
-            return Keyboard.current.anyKey.isPressed ||
-                   Mouse.current.leftButton.isPressed ||
-                   Mouse.current.rightButton.isPressed ||
-                   Mouse.current.middleButton.isPressed;
-#else
-            return Input.anyKeyDown;
-#endif
-        }
-
-        #endregion
 
         // Raycast helpers that cache values to minimize the number of raycasts
 
@@ -370,12 +319,8 @@ namespace HutongGames.PlayMaker
             {
                 return;
             }
-#if NEW_INPUT_SYSTEM_ONLY
-            if (Mouse.current == null) return;
-            var ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-#else
+
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-#endif
 
             Physics.Raycast(ray, out mousePickInfo, distance, layerMask);
 
@@ -384,7 +329,7 @@ namespace HutongGames.PlayMaker
             mousePickRaycastTime = Time.frameCount;
         }
 
-#endregion
+        #endregion
 
         public static int LayerArrayToLayerMask(FsmInt[] layers, bool invert)
         {
@@ -403,11 +348,11 @@ namespace HutongGames.PlayMaker
             // Unity 5.3 changed this Physics property name
             //public const int kDefaultRaycastLayers = -5;
             /*
-#if UNITY_PRE_5_3
+            #if UNITY_PRE_5_3
                         return layermask == 0 ? Physics.kDefaultRaycastLayers : layermask;
-#else
+            #else
                         return layermask == 0 ? Physics.DefaultRaycastLayers : layermask;
-#endif
+            #endif
             */
             // HACK just return the hardcoded value to avoid separate Unity 5.3 dll
             // TODO Revisit in future version
@@ -460,7 +405,7 @@ namespace HutongGames.PlayMaker
             return "Fsm will not respond to Event: " + eventName;
         }
 
-#region Physics setup helpers
+        #region Physics setup helpers
 
         //[Obsolete("Use CheckPhysicsSetup(gameObject) instead")]
         public static string CheckPhysicsSetup(FsmOwnerDefault ownerDefault)
@@ -520,9 +465,9 @@ namespace HutongGames.PlayMaker
             return error;
         }
 
-#endregion
+        #endregion
 
-#region Logging helpers
+        #region Logging helpers
 
         public static void DebugLog(Fsm fsm, LogLevel logLevel, string text, bool sendToUnityLog = false)
         {
@@ -611,9 +556,9 @@ namespace HutongGames.PlayMaker
         }
 
 
-#endregion
+        #endregion
 
-#region AutoName helpers
+        #region AutoName helpers
 
         public const string colon = ": ";
         
@@ -734,7 +679,7 @@ namespace HutongGames.PlayMaker
         /// </summary>
         public static string AutoName(string actionName, Fsm fsm, FsmOwnerDefault target, params INamedVariable[] exposedFields)
         {
-            var autoName = actionName + colon + GetValueLabel(fsm, target) + " ";
+            var autoName = actionName + colon + GetValueLabel(fsm, target);
             foreach (var field in exposedFields)
             {
                 autoName += GetValueLabel(field) + " ";
@@ -807,9 +752,9 @@ namespace HutongGames.PlayMaker
             return actionName + colon + GetValueLabel(property) + " -> " + GetValueLabel(store);
         }
 
-#endregion
+        #endregion
 
-#region Editor helpers
+        #region Editor helpers
 
 #if UNITY_EDITOR
 
@@ -1298,9 +1243,9 @@ namespace HutongGames.PlayMaker
 
 #endif //UNITY_EDITOR
 
-#endregion
+        #endregion
 
-#region Obsolete
+        #region Obsolete
 
         /// <summary>
         /// Actions should use this for consistent error messages.
@@ -1312,7 +1257,7 @@ namespace HutongGames.PlayMaker
             action.LogError(action + colon + error);
         }
 
-#endregion
+        #endregion
 
     }
 }

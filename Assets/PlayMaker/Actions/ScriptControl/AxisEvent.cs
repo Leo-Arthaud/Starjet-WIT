@@ -1,20 +1,10 @@
-// (c) Copyright HutongGames, LLC 2010-2021. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
 
-// NOTE: The new Input System and legacy Input Manager can both be enabled in a project.
-#if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
-#define NEW_INPUT_SYSTEM_ONLY
-#endif
-
-using System;
 using UnityEngine;
 
 namespace HutongGames.PlayMaker.Actions
 {
-#if NEW_INPUT_SYSTEM_ONLY
-    [Obsolete("This action is not supported in the new Input System. " +
-              "Use PlayerInputGetVector2 or GamepadStickEvents instead.")]
-#endif
-    [ActionCategory(ActionCategory.Input)]
+	[ActionCategory(ActionCategory.Input)]
 	[Tooltip("Sends events based on the direction of Input Axis (Left/Right/Up/Down...).")]
 	public class AxisEvent : FsmStateAction
 	{
@@ -56,18 +46,14 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnUpdate()
 		{
-            // get axes offsets
-
-#if NEW_INPUT_SYSTEM_ONLY
-            var x = 0f;
-            var y = 0f;
-#else
-            var x = horizontalAxis.Value != "" ? Input.GetAxis(horizontalAxis.Value) : 0;
+			// get axes offsets
+			
+			var x = horizontalAxis.Value != "" ? Input.GetAxis(horizontalAxis.Value) : 0;
 			var y = verticalAxis.Value != "" ? Input.GetAxis(verticalAxis.Value) : 0;
-#endif           
-            // get squared offset from center
-
-            var offset = (x * x) + (y * y);
+			
+			// get squared offset from center
+			
+			var offset = (x * x) + (y * y);
 			
 			// no offset?
 			
@@ -121,16 +107,6 @@ namespace HutongGames.PlayMaker.Actions
 				//Debug.Log("AnyDirection");
 			}
 		}
-
-
-#if NEW_INPUT_SYSTEM_ONLY
-
-        public override string ErrorCheck()
-        {
-            return "This action is not supported in the new Input System. " +
-                   "Use PlayerInputGetVector2 or GamepadStickEvents instead.";
-        }
-#endif
-    }
+	}
 }
 

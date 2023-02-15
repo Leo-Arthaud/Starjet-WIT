@@ -1,22 +1,10 @@
-// (c) Copyright HutongGames, LLC 2010-2021. All rights reserved.
+// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
 
-// The new Input System optionally supports the legacy input manager 
-#if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
-#define NEW_INPUT_SYSTEM_ONLY
-#endif
-
-using System;
-
-#if !NEW_INPUT_SYSTEM_ONLY
 using UnityEngine;
-#endif
 
 namespace HutongGames.PlayMaker.Actions
-{
-#if NEW_INPUT_SYSTEM_ONLY
-    [Obsolete("This action has no equivalent in the new Input System.")]
-#endif
-    [ActionCategory(ActionCategory.Device)]
+{	
+	[ActionCategory(ActionCategory.Device)]
 	[Tooltip("Gets Location Info from a mobile device. NOTE: Use StartLocationService before trying to get location info.")]
 	public class GetLocationInfo : FsmStateAction
 	{
@@ -64,9 +52,8 @@ namespace HutongGames.PlayMaker.Actions
 			Finish();
 		}
 
-        private void DoGetLocationInfo()
+		void DoGetLocationInfo()
         {
-#if !NEW_INPUT_SYSTEM_ONLY
 #if UNITY_IPHONE || UNITY_IOS || UNITY_ANDROID || UNITY_BLACKBERRY || UNITY_WP8
 
 			if (Input.location.status != LocationServiceStatus.Running)
@@ -89,16 +76,6 @@ namespace HutongGames.PlayMaker.Actions
 			verticalAccuracy.Value = Input.location.lastData.verticalAccuracy;
 			
 #endif
-#endif
         }
-
-#if NEW_INPUT_SYSTEM_ONLY
-
-        public override string ErrorCheck()
-        {
-            return "This action is not supported in the new Input System.";
-        }
-#endif
-
-    }
+	}
 }

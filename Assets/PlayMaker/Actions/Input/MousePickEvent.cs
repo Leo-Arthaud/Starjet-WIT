@@ -1,26 +1,12 @@
-// (c) Copyright HutongGames, LLC 2010-2021. All rights reserved.
-
-// NOTE: The new Input System and legacy Input Manager can both be enabled in a project.
-// This action was developed for the old input manager, so we will use it if its available. 
-// If only the new input system is available we will try to use that instead,
-// but there might be subtle differences in the behaviour in the new system!
-
-#if ENABLE_INPUT_SYSTEM && !ENABLE_LEGACY_INPUT_MANAGER
-#define NEW_INPUT_SYSTEM_ONLY
-#endif
+// (c) Copyright HutongGames, LLC 2010-2013. All rights reserved.
 
 using UnityEngine;
-
-#if NEW_INPUT_SYSTEM_ONLY
-using UnityEngine.InputSystem;
-#endif
 
 namespace HutongGames.PlayMaker.Actions
 {
 	[ActionCategory(ActionCategory.Input)]
     [ActionTarget(typeof(GameObject),"GameObject")]
-	[Tooltip("Sends Events based on mouse interactions with a Game Object: MouseOver, MouseDown, MouseUp, MouseOff. " +
-             "Use Ray Distance to set how close the camera must be to pick the object." +
+	[Tooltip("Sends Events based on mouse interactions with a Game Object: MouseOver, MouseDown, MouseUp, MouseOff. Use Ray Distance to set how close the camera must be to pick the object." +
              "\nNOTE: Picking uses the Main Camera, so you must have a Camera in the scene tagged as Main Camera.")]
 	public class MousePickEvent : FsmStateAction
 	{
@@ -81,7 +67,7 @@ namespace HutongGames.PlayMaker.Actions
 			DoMousePickEvent();
 		}
 
-        private void DoMousePickEvent()
+		void DoMousePickEvent()
 		{
 			// Do the raycast
 
@@ -95,14 +81,9 @@ namespace HutongGames.PlayMaker.Actions
 
 			if (isMouseOver)
 			{
-#if NEW_INPUT_SYSTEM_ONLY
-                if (Mouse.current == null) return;
-                if (mouseDown != null && Mouse.current.leftButton.wasPressedThisFrame)
-#else
-                if (mouseDown != null && Input.GetMouseButtonDown(0))
-#endif
-                {
-                    Fsm.Event(mouseDown);
+				if (mouseDown != null && Input.GetMouseButtonDown(0))
+				{
+					Fsm.Event(mouseDown);
 				}
 
 				if (mouseOver != null)
@@ -110,12 +91,8 @@ namespace HutongGames.PlayMaker.Actions
 					Fsm.Event(mouseOver);
 				}
 
-#if NEW_INPUT_SYSTEM_ONLY
-                if (mouseUp != null && Mouse.current.leftButton.wasReleasedThisFrame)
-#else
 				if (mouseUp != null &&Input.GetMouseButtonUp(0))
-#endif
-                {
+				{
 					Fsm.Event(mouseUp);
 				}
 			}
@@ -128,7 +105,7 @@ namespace HutongGames.PlayMaker.Actions
 			}
 		}
 
-        private bool DoRaycast()
+		bool DoRaycast()
 		{
 			var testObject = GameObject.OwnerOption == OwnerDefaultOption.UseOwner ? Owner : GameObject.GameObject.Value;
 			

@@ -27,7 +27,6 @@ namespace HutongGames.PlayMakerEditor
             {
                 case PlayMaker.Actions.TweenColor.Target.GameObject:
                     EditField("gameObject");
-                    FsmEditorGUILayout.ReadonlyTextField("Type: " + tweenColor.type);
                     break;
                 case PlayMaker.Actions.TweenColor.Target.Variable:
                     EditField("variable");
