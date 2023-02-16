@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3935408776823068002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: 0, z: -1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 3935408776768672034}
@@ -198,7 +198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3935408777267682468}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: -1}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 3935408778113520946}
@@ -419,7 +419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3935408777533210897}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 3935408777634870728}
@@ -1026,7 +1026,7 @@ MonoBehaviour:
         - 
         - 
         actionEnabled: 010101010101010101010101
-        actionIsOpen: 010000000000000000000000
+        actionIsOpen: 010101010101010100000000
         actionStartIndex: 000000000100000005000000090000000d0000001100000015000000190000001d00000021000000250000002c000000
         actionHashCodes: 5c004505184b5704184b5704184b5704184b5704184b5704184b5704184b5704184b5704184b57045552ad055552ad05
         unityObjectParams: []
@@ -2501,7 +2501,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 030000000600000007000000
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
